@@ -55,19 +55,19 @@ mounts:
         source_path: plugins
     '/administrator/logs':
         source: local
-        source_path: logs
+        source_path: admin-logs
     '/administrator/cache':
         source: local
-        source_path: cache
+        source_path: admin-cache
     '/administrator/components':
         source: local
-        source_path: components
+        source_path: admin-components
     '/administrator/language':
         source: local
-        source_path: language
+        source_path: admin-language
     '/administrator/manifests':
         source: local
-        source_path: manifests
+        source_path: admin-manifests
 
 hooks:
     deploy: |
