@@ -47,6 +47,9 @@ mounts:
     '/media':
         source: local
         source_path: media
+    '/modules':
+        source: local
+        source_path: modules
     '/language':
         source: local
         source_path: language
@@ -82,6 +85,7 @@ hooks:
             rsync -a init/components/ components/
             rsync -a init/tmp/ tmp/
             rsync -a init/media/ media/
+            rsync -a init/modules/ modules/
             rsync -a init/language/ language/
             rsync -a init/plugins/ plugins/
             mysql -h database.internal -P 3306 -u user main < joomla-init.sql
