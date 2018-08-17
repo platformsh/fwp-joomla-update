@@ -2127,8 +2127,6 @@ CREATE TABLE `joo_user_usergroup_map` (
 --
 
 LOCK TABLES `joo_user_usergroup_map` WRITE;
-/*!40000 ALTER TABLE `joo_user_usergroup_map` DISABLE KEYS */;
-INSERT INTO `joo_user_usergroup_map` VALUES (144,8);
 /*!40000 ALTER TABLE `joo_user_usergroup_map` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2200,8 +2198,6 @@ CREATE TABLE `joo_users` (
 --
 
 LOCK TABLES `joo_users` WRITE;
-/*!40000 ALTER TABLE `joo_users` DISABLE KEYS */;
-INSERT INTO `joo_users` VALUES (144,'Super User','test','test@test.com','$2y$10$UK7ujAE/VqeVYFvpbrjPNejf48HMy7oO6.AfVBWlmWGkYhRDmz9o2',0,1,'2016-09-18 20:32:24','2018-08-09 16:20:02','0','','0000-00-00 00:00:00',0,'','',0);
 /*!40000 ALTER TABLE `joo_users` ENABLE KEYS */;
 UNLOCK TABLES;
 

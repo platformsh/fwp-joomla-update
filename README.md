@@ -1,12 +1,28 @@
-# Joomla on Platform.sh
+# Joomla template for Platform.sh
 
-## Setup
+## How to install
 
-    git add remote platform [PROJECT-ID]@git.[PROJECT-REGION].platform.sh:[PROJECT-ID].git
-    git push platform master
+1. Clone this repository
+2. Create a new platform.sh project
 
+```
+platform project:create
+```
 
-## Login
+3. Add specific environment variables
 
-    Admin user: test
-    Admin password: testtest
+```
+platform variable:add ADMIN_LOGIN yourlogin
+platform variable:add ADMIN_PASSWORD yourpassword
+```
+
+4. Push to platform.sh
+
+```
+git remote add platform <project id>@git.<project region>.platform.sh:<project id>.git
+git push platform master
+```
+
+5. Backend
+
+You can access your backend at `/administrator` with the credentials that you defined as variables.
