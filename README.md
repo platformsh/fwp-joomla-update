@@ -12,8 +12,8 @@ platform project:create
 3. Add specific environment variables
 
 ```
-platform variable:set ADMIN_LOGIN yourlogin
-platform variable:set ADMIN_PASSWORD yourpassword
+platform variable:set env:ADMIN_LOGIN yourlogin
+platform variable:set env:ADMIN_PASSWORD yourpassword
 ```
 
 4. Push to platform.sh
