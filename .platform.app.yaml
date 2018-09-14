@@ -35,33 +35,6 @@ disk: 2048
 
 # The mounts that will be performed when the package is deployed.
 mounts:
-    '/cache':
-        source: local
-        source_path: cache
-    '/components':
-        source: local
-        source_path: components
-    '/tmp':
-        source: local
-        source_path: tmp
-    '/libraries':
-        source: local
-        source_path: libraries
-    '/media':
-        source: local
-        source_path: media
-    '/modules':
-        source: local
-        source_path: modules
-    '/language':
-        source: local
-        source_path: language
-    '/plugins':
-        source: local
-        source_path: plugins
-    '/administrator/logs':
-        source: local
-        source_path: admin-logs
     '/administrator/cache':
         source: local
         source_path: admin-cache
@@ -71,9 +44,45 @@ mounts:
     '/administrator/language':
         source: local
         source_path: admin-language
+    '/administrator/logs':
+        source: local
+        source_path: admin-logs
     '/administrator/manifests':
         source: local
         source_path: admin-manifests
+   '/administrator/modules':
+       source: local
+       source_path: admin-modules
+   '/administrator/templates':
+       source: local
+       source_path: admin-templates
+    '/cache':
+        source: local
+        source_path: cache
+    '/components':
+        source: local
+        source_path: components
+    '/language':
+        source: local
+        source_path: language
+    '/libraries':
+        source: local
+        source_path: libraries
+    '/media':
+        source: local
+        source_path: media
+    '/modules':
+        source: local
+        source_path: modules
+    '/plugins':
+        source: local
+        source_path: plugins
+   '/templates':
+       source: local
+       source_path: templates
+    '/tmp':
+        source: local
+        source_path: tmp
 
 hooks:
     deploy: |
@@ -84,6 +93,8 @@ hooks:
             rsync -a init/admin-logs/ administrator/logs/
             rsync -a init/admin-language/ administrator/language/
             rsync -a init/admin-manifests/ administrator/manifests/
+            rsync -a init/admin-modules/ administrator/modules/
+            rsync -a init/admin-templates/ administrator/templates/
             rsync -a init/cache/ cache/
             rsync -a init/components/ components/
             rsync -a init/tmp/ tmp/
@@ -92,6 +103,7 @@ hooks:
             rsync -a init/modules/ modules/
             rsync -a init/language/ language/
             rsync -a init/plugins/ plugins/
+            rsync -a init/templates/ templates/
             mysql -h database.internal -P 3306 -u user main < joomla-init.sql
             mysql -h database.internal -u user -e "INSERT  INTO joo_users (name, username, password, params) VALUES ('Administrator', '${ADMIN_EMAIL}', md5('${ADMIN_PASSWORD}'), ''); INSERT INTO joo_user_usergroup_map (user_id,group_id) VALUES (LAST_INSERT_ID(),'8');" main
             cd && touch administrator/logs/installed.lock
