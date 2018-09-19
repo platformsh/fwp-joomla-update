@@ -50,10 +50,10 @@ mounts:
     '/administrator/manifests':
         source: local
         source_path: admin-manifests
-   '/administrator/modules':
+    '/administrator/modules':
        source: local
        source_path: admin-modules
-   '/administrator/templates':
+    '/administrator/templates':
        source: local
        source_path: admin-templates
     '/cache':
@@ -77,7 +77,7 @@ mounts:
     '/plugins':
         source: local
         source_path: plugins
-   '/templates':
+    '/templates':
        source: local
        source_path: templates
     '/tmp':
