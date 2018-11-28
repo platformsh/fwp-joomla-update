@@ -17,6 +17,7 @@ class JConfig {
 	public $password = '';
 	public $db = '';
 	public $dbprefix = 'joo_';
+	public $live_site = '';
 	public $secret = 'Ow0ORVtuiXXi7cgo';
 	public $gzip = '0';
 	public $error_reporting = 'default';
@@ -69,7 +70,6 @@ class JConfig {
 		// This is where we get the relationships of our application dynamically
     		//from Platform.sh
 		$relationships = json_decode(base64_decode($_ENV['PLATFORM_RELATIONSHIPS']), TRUE);
-		$routes = json_decode(base64_decode($_ENV['PLATFORM_ROUTES']), TRUE);
 
 		// We are using the first relationship called "database" found in your
 		// relationships. Note that you can call this relationship as you wish
@@ -78,11 +78,5 @@ class JConfig {
 		$this->user = $relationships['database'][0]['username'];
 		$this->password = $relationships['database'][0]['password'];
 		$this->host = $relationships['database'][0]['host'];
-		$this->live_site = '';
-		foreach($routes as $route){
-			if(strpos($route['original_url'],'https')){
-				$this->live_site = $route['original_url'];
-			}
-		}
 	}
 }
